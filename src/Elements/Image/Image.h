@@ -31,6 +31,8 @@ typedef struct
 
     const char* FilePath;
 
+    void* MediaHandle;
+
     unsigned int TextureID;
 
     bool Loaded;

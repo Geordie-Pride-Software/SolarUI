@@ -25,7 +25,7 @@ void solLabel_Init(
 
     label->Text = text;
 
-    label->Colour = (solColour)
+    label->Style.Text = (solColour)
     {
         1.0f,
         1.0f,
@@ -91,7 +91,7 @@ void solLabel_SetColour(
     if (!label)
         return;
 
-    label->Colour = colour;
+    label->Style.Text = colour;
 }
 
 void solLabel_SetFont(

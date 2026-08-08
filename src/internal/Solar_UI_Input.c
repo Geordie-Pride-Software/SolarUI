@@ -16,6 +16,7 @@ static bool MouseReleased = false;
 
 
 static bool Keys[256];
+static bool SpecialKeys[256];
 
 
 static solElement* FocusedElement = 0;
@@ -43,6 +44,7 @@ void solInput_Init(void)
     for(int i = 0; i < 256; i++)
     {
         Keys[i] = false;
+        SpecialKeys[i] = false;
     }
 
 
@@ -178,6 +180,33 @@ bool solInput_IsKeyDown(
 
 
     return Keys[key];
+}
+
+
+
+void solInput_SetSpecialKey(
+    int key,
+    bool pressed
+)
+{
+    if(key < 0 || key >= 256)
+        return;
+
+
+    SpecialKeys[key] = pressed;
+}
+
+
+
+bool solInput_IsSpecialKeyDown(
+    int key
+)
+{
+    if(key < 0 || key >= 256)
+        return false;
+
+
+    return SpecialKeys[key];
 }
 
 

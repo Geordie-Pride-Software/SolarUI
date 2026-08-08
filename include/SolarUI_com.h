@@ -28,6 +28,20 @@ typedef struct
 
 
 // **********************************************
+// *              MOUSE                         *
+// **********************************************
+
+typedef enum
+{
+    SOL_MOUSE_LEFT = 0,
+    SOL_MOUSE_MIDDLE,
+    SOL_MOUSE_RIGHT
+
+} solMouseButton;
+
+
+
+// **********************************************
 // *              ELEMENT TYPES                 *
 // **********************************************
 
@@ -185,76 +199,6 @@ typedef struct
     solColour Text;
 
 } solLabelStyle;
-
-
-
-typedef struct
-{
-    solColour Background;
-    solColour Border;
-    solColour Text;
-
-} solButtonStyle;
-
-
-
-typedef struct
-{
-    solColour Background;
-    solColour Fill;
-    solColour Handle;
-
-} solSliderStyle;
-
-
-
-typedef struct
-{
-    solColour Background;
-    solColour Checked;
-    solColour Border;
-
-} solCheckboxStyle;
-
-
-
-typedef struct
-{
-    solColour Tint;
-
-} solImageStyle;
-
-
-
-typedef struct
-{
-    solColour Tint;
-
-} solVideoStyle;
-
-
-
-typedef struct
-{
-    solColour Background;
-    solColour Border;
-    solColour Text;
-
-} solDropdownStyle;
-
-
-
-typedef struct
-{
-    solColour Background;
-    solColour Border;
-
-    solColour Text;
-    solColour Placeholder;
-
-    solColour Cursor;
-
-} solInputBoxStyle;
 
 
 

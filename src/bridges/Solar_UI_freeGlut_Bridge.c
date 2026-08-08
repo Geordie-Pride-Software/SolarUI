@@ -1,4 +1,4 @@
-#include "Solar_UI_freeGLUT_Bridge.h"
+#include "Solar_UI_freeGlut_Bridge.h"
 
 
 #include <GL/freeglut.h>

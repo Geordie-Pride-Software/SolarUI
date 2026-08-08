@@ -59,12 +59,8 @@ void solInputBridge_MouseButton(
 
         if(state == GLUT_DOWN)
         {
-            solInput_SetMouseDown(
-                true
-            );
-
-
-            solInput_SetMousePressed(
+            solInput_SetMouseButton(
+                SOL_MOUSE_LEFT,
                 true
             );
         }
@@ -72,7 +68,8 @@ void solInputBridge_MouseButton(
 
         else if(state == GLUT_UP)
         {
-            solInput_SetMouseDown(
+            solInput_SetMouseButton(
+                SOL_MOUSE_LEFT,
                 false
             );
         }
@@ -94,7 +91,8 @@ void solInputBridge_KeyDown(
 )
 {
     solInput_SetKey(
-        key
+        key,
+        true
     );
 }
 
@@ -110,7 +108,10 @@ void solInputBridge_KeyUp(
     int y
 )
 {
-
+    solInput_SetKey(
+        key,
+        false
+    );
 }
 
 
@@ -126,6 +127,25 @@ void solInputBridge_SpecialKey(
 )
 {
     solInput_SetSpecialKey(
-        key
+        key,
+        true
+    );
+}
+
+
+
+// **********************************************
+// *              SPECIAL KEY UP                *
+// **********************************************
+
+void solInputBridge_SpecialKeyUp(
+    int key,
+    int x,
+    int y
+)
+{
+    solInput_SetSpecialKey(
+        key,
+        false
     );
 }

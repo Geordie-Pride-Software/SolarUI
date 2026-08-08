@@ -52,12 +52,24 @@ src/Elements/Video/Video.c
 )
 
 # ==============================================
+# BUILD OPTIONS
+# ==============================================
+
+option(SOLARUI_BUILD_SHARED "Build SolarUI as a shared library (DLL)" ON)
+
+if(SOLARUI_BUILD_SHARED)
+    set(SOLARUI_LIB_TYPE SHARED)
+else()
+    set(SOLARUI_LIB_TYPE STATIC)
+endif()
+
+# ==============================================
 # DLL TARGET
 # ==============================================
 
 add_library(
 SolarUI
-SHARED
+${SOLARUI_LIB_TYPE}
 ${SOLARUI_SOURCES}
 )
 

@@ -69,6 +69,17 @@ bool solInput_IsKeyDown(
 );
 
 
+void solInput_SetSpecialKey(
+    int key,
+    bool pressed
+);
+
+
+bool solInput_IsSpecialKeyDown(
+    int key
+);
+
+
 // **********************************************
 // *              FOCUS                         *
 // **********************************************

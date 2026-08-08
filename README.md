@@ -19,12 +19,17 @@ Include:
 
 #include "SolarUI.h"
 
+compilation command:
+
+for compiling we recomend using the cmake, and the following commands:
+```
+cmake -S . -B build_dll -G "MinGW Makefiles" -DSOLARUI_BUILD_SHARED=ON
+cmake --build build_dll
+```
+
 ## Example
 
-```cpp
-SolarUI::Button btn(50, 50, 120, 40, "Hello");
-btn.Draw();
-```
+
 ## License
 
 SolarUI is licensed under the MIT License.

@@ -1,7 +1,7 @@
 #include "Solar_UI_Render.h"
 
 
-#include "../bridges/Solar_UI_freeGLUT_Bridge.h"
+#include "../bridges/Solar_UI_freeGlut_Bridge.h"
 
 
 
@@ -236,7 +236,7 @@ void solRender_DrawSlider(
         slider->Element.Bounds.Size.Width,
         slider->Element.Bounds.Size.Height,
 
-        slider->Style.Background
+        slider->Style.Track
     );
 
 

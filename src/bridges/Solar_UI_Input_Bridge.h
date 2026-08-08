@@ -66,6 +66,13 @@ void solInputBridge_SpecialKey(
 );
 
 
+void solInputBridge_SpecialKeyUp(
+    int key,
+    int x,
+    int y
+);
+
+
 
 #ifdef __cplusplus
 }

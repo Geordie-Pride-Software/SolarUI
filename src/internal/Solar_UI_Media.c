@@ -9,7 +9,7 @@
 #include "../external/miniaudio.h"
 
 
-#include "../external/libVLC/include/vlc/vlc.h"
+#include "../external/libVLC/include/vlc.h"
 #include "../external/libVLC/include/vlc/libvlc.h"
 
 

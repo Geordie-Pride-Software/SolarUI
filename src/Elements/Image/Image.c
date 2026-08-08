@@ -99,14 +99,17 @@ void solImage_Load(
         return;
 
 
-    image->TextureID =
+    image->MediaHandle =
         solMedia_LoadImage(
             image->FilePath
         );
 
 
-    if (image->TextureID != 0)
+    if (image->MediaHandle != 0)
     {
+        image->TextureID =
+            ((solMedia*)image->MediaHandle)->TextureID;
+
         image->Loaded = true;
     }
 }
@@ -125,10 +128,12 @@ void solImage_Unload(
         return;
 
 
-    solMedia_UnloadImage(
-        image->TextureID
+    solMedia_Unload(
+        image->MediaHandle
     );
 
+
+    image->MediaHandle = 0;
 
     image->TextureID = 0;
 
