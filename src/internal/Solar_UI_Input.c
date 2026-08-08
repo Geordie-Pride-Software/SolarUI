@@ -262,3 +262,108 @@ solElement* solInput_GetCapture(void)
 {
     return CapturedElement;
 }
+
+
+
+// **********************************************
+// *              ELEMENT ROUTER                *
+// **********************************************
+
+void solInput_SendToElement(
+    solElement* element
+)
+{
+    if(!element)
+        return;
+
+
+    float mouseX =
+        solInput_GetMouseX();
+
+    float mouseY =
+        solInput_GetMouseY();
+
+    bool mouseDown =
+        solInput_IsMouseDown();
+
+    bool mousePressed =
+        solInput_IsMousePressed();
+
+
+    switch(element->Type)
+    {
+
+        case SOL_ELEMENT_BUTTON:
+
+            solButton_Update(
+                (solButton*)element,
+                mouseX,
+                mouseY,
+                mouseDown
+            );
+
+            break;
+
+
+
+        case SOL_ELEMENT_SLIDER:
+
+            solSlider_Update(
+                (solSlider*)element,
+                mouseX,
+                mouseY,
+                mouseDown
+            );
+
+            break;
+
+
+
+        case SOL_ELEMENT_CHECKBOX:
+
+            solCheckbox_Update(
+                (solCheckbox*)element,
+                mouseX,
+                mouseY,
+                mousePressed
+            );
+
+            break;
+
+
+
+        case SOL_ELEMENT_DROPDOWN:
+
+            solDropdown_Update(
+                (solDropdown*)element,
+                mouseX,
+                mouseY,
+                mousePressed
+            );
+
+            break;
+
+
+
+        case SOL_ELEMENT_INPUTBOX:
+
+            solInputBox_MouseUpdate(
+                (solInputBox*)element,
+                mouseX,
+                mouseY,
+                mousePressed
+            );
+
+            break;
+
+
+
+        /*
+            Labels, images and video are not
+            interactive - nothing to route.
+        */
+
+        default:
+            break;
+    }
+}

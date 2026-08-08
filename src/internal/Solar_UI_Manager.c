@@ -241,6 +241,32 @@ void solUI_Manager_Update(void)
 
 
 
+// **********************************************
+// *              INPUT BLOCKING                *
+// **********************************************
+
+void solUI_Manager_BlockInputBelow(
+    solElement* element
+)
+{
+    if(!element)
+        return;
+
+
+    solInput_Capture(
+        element
+    );
+}
+
+
+
+void solUI_Manager_UnblockInput(void)
+{
+    solInput_ReleaseCapture();
+}
+
+
+
 void solUI_Manager_Draw(void)
 {
     /*

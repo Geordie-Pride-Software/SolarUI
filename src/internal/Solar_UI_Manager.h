@@ -70,6 +70,22 @@ solElement* solUI_Manager_GetElementAt(
 void solUI_Manager_ProcessInput(void);
 
 
+// **********************************************
+// *              INPUT BLOCKING                *
+// **********************************************
+// Used by overlay-style elements (e.g. an open
+// dropdown) to stop input reaching elements
+// underneath. Backed by the Input module's
+// existing capture mechanism.
+
+void solUI_Manager_BlockInputBelow(
+    solElement* element
+);
+
+
+void solUI_Manager_UnblockInput(void);
+
+
 
 #ifdef __cplusplus
 }

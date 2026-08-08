@@ -47,6 +47,11 @@ typedef struct
     void* Handle;
 
 
+    // Video-only: whether playback should
+    // restart automatically when it ends.
+    bool Looping;
+
+
 } solMedia;
 
 
@@ -107,6 +112,38 @@ solMedia* solMedia_LoadVideo(
 
 
 void solMedia_PlayVideo(
+    solMedia* media
+);
+
+
+
+void solMedia_PauseVideo(
+    solMedia* media
+);
+
+
+
+void solMedia_StopVideo(
+    solMedia* media
+);
+
+
+
+void solMedia_SetVideoLoop(
+    solMedia* media,
+    bool loop
+);
+
+
+
+void solMedia_SetVideoVolume(
+    solMedia* media,
+    float volume
+);
+
+
+
+void solMedia_UnloadVideo(
     solMedia* media
 );
 

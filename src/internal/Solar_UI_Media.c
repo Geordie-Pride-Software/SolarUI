@@ -407,13 +407,13 @@ solMedia* solMedia_LoadVideo(
 
     media->Loaded = true;
 
+    media->Looping = false;
+
 
 
     return media;
 
 }
-
-
 
 
 
@@ -434,6 +434,90 @@ void solMedia_PlayVideo(
 
 
 
+void solMedia_PauseVideo(
+    solMedia* media
+)
+{
+    if(!media)
+        return;
+
+
+    libvlc_media_player_set_pause(
+        media->Handle,
+        1
+    );
+}
+
+
+
+void solMedia_StopVideo(
+    solMedia* media
+)
+{
+    if(!media)
+        return;
+
+
+    libvlc_media_player_stop(
+        media->Handle
+    );
+}
+
+
+
+void solMedia_SetVideoLoop(
+    solMedia* media,
+    bool loop
+)
+{
+    if(!media)
+        return;
+
+
+    media->Looping = loop;
+}
+
+
+
+void solMedia_SetVideoVolume(
+    solMedia* media,
+    float volume
+)
+{
+    if(!media)
+        return;
+
+
+    if(volume < 0.0f)
+        volume = 0.0f;
+
+    if(volume > 1.0f)
+        volume = 1.0f;
+
+
+    libvlc_audio_set_volume(
+        media->Handle,
+        (int)(volume * 100.0f)
+    );
+}
+
+
+
+void solMedia_UnloadVideo(
+    solMedia* media
+)
+{
+    /*
+        The generic Unload path already knows
+        how to stop and release a video player
+        correctly (see solMedia_Unload below).
+    */
+
+    solMedia_Unload(
+        media
+    );
+}
+
 
 
 void solMedia_UpdateVideo(
@@ -447,6 +531,31 @@ void solMedia_UpdateVideo(
         a buffer, then the render bridge
         uploads them as textures.
     */
+
+    if(!media || !media->Handle)
+        return;
+
+
+    if(!media->Looping)
+        return;
+
+
+    libvlc_state_t state =
+        libvlc_media_player_get_state(
+            media->Handle
+        );
+
+
+    if(state == libvlc_Ended)
+    {
+        libvlc_media_player_stop(
+            media->Handle
+        );
+
+        libvlc_media_player_play(
+            media->Handle
+        );
+    }
 }
 
 

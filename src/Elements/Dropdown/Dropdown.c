@@ -181,7 +181,7 @@ void solDropdown_Open(
 
 
     solUI_Manager_BlockInputBelow(
-        dropdown
+        (solElement*)dropdown
     );
 }
 

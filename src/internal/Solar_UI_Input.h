@@ -3,6 +3,12 @@
 
 #include "../../include/SolarUI_com.h"
 
+#include "../Elements/Button/Button.h"
+#include "../Elements/Slider/Slider.h"
+#include "../Elements/Checkbox/Checkbox.h"
+#include "../Elements/Dropdown/Dropdown.h"
+#include "../Elements/InputBox/InputBox.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -112,6 +118,20 @@ void solInput_ReleaseCapture(void);
 
 
 solElement* solInput_GetCapture(void);
+
+
+
+// **********************************************
+// *              ELEMENT ROUTER                *
+// **********************************************
+// Dispatches the current input state to whichever
+// per-element-type Update function matches the
+// element's Type. Mirrors solRender_DrawElement's
+// routing pattern in Solar_UI_Render.c.
+
+void solInput_SendToElement(
+    solElement* element
+);
 
 
 
