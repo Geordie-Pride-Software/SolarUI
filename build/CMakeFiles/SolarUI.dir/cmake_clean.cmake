@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "C:/Users/bdawz/Documents/GIT/SolarUI/bin/libSolarUI.dll"
+  "C:/Users/bdawz/Documents/GIT/SolarUI/bin/libSolarUI.dll.manifest"
+  "C:/Users/bdawz/Documents/GIT/SolarUI/bin/libSolarUI.pdb"
+  "CMakeFiles/SolarUI.dir/src/Elements/Button/Button.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Button/Button.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Checkbox/Checkbox.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Checkbox/Checkbox.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Dropdown/Dropdown.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Dropdown/Dropdown.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Image/Image.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Image/Image.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/InputBox/InputBox.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/InputBox/InputBox.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Label/Label.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Label/Label.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Slider/Slider.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Slider/Slider.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Elements/Video/Video.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Elements/Video/Video.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/Solar_UI.c.obj"
+  "CMakeFiles/SolarUI.dir/src/Solar_UI.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/bridges/Solar_UI_Input_Bridge.c.obj"
+  "CMakeFiles/SolarUI.dir/src/bridges/Solar_UI_Input_Bridge.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/bridges/Solar_UI_freeGlut_Bridge.c.obj"
+  "CMakeFiles/SolarUI.dir/src/bridges/Solar_UI_freeGlut_Bridge.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Input.c.obj"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Input.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Manager.c.obj"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Manager.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Media.c.obj"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Media.c.obj.d"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Render.c.obj"
+  "CMakeFiles/SolarUI.dir/src/internal/Solar_UI_Render.c.obj.d"
+  "libSolarUI.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/SolarUI.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,1 @@
+  -L"C:/Users/bdawz/Documents/GIT/SolarUI/src/external/freeglut-3.0.0/lib/x64"  -LC:/Users/bdawz/Documents/GIT/SolarUI/src/external/libVLC  -lopengl32 -lfreeglut -llibvlc -llibvlccore -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

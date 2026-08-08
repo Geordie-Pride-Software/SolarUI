@@ -1,201 +1,133 @@
-/*
-    SolarUI
-    Lightweight UI framework for FreeGLUT/OpenGL
-
-    Copyright (c) 2026 Ellie-Mae Dawson
-
-    Licensed under the MIT License
-*/
-#ifndef SOLAR_UI_H
-#define SOLAR_UI_H
-
-#include <GL/freeglut.h>
-#include <string>
-#include <vector>
-#include <initializer_list>
-
-namespace SolarUI
-{
-    // **********************************************
-    // *              GLOBAL INPUT STATE            *
-    // **********************************************
-    inline float MouseX = 0.0f;
-    inline float MouseY = 0.0f;
-
-    inline bool MouseDown = false;
-    inline bool MousePressed = false;
-
-    inline int WindowWidth = 800;
-    inline int WindowHeight = 600;
-    inline float LogicalWidth = 800.0f;
-    inline float LogicalHeight = 600.0f;
-    inline float ViewScale = 1.0f;
-    inline float ViewOffsetX = 0.0f;
-    inline float ViewOffsetY = 0.0f;
+#ifndef SOLARUI_H
+#define SOLARUI_H
 
 
-    // **********************************************
-    // *              GLOBAL FONT SYSTEM            *
-    // **********************************************
-
-    inline void* CurrentFont = GLUT_BITMAP_HELVETICA_18;
-
-    inline void SetFont(void* font)
-    {
-        CurrentFont = font;
-    }
+#include "SolarUI_exp.h"
+#include "SolarUI_com.h"
 
 
-    // **********************************************
-    // *              CORE FUNCTIONS               *
-    // **********************************************
-    int Init();
-    int Update();
-    int DrawFrame();
-    void SetLogicalSize(float width, float height);
-    void UpdateViewport(int width, int height);
-    void ScreenToLogical(int screenX, int screenY, float& outX, float& outY);
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
-    // **********************************************
-    // *                  ELEMENTS                  *
-    // **********************************************
-    struct Label
-    {
-        const char* Text;
-        float X, Y;
 
-        Label(const char* text = "", float x = 0, float y = 0)
-            : Text(text), X(x), Y(y) {}
+// **********************************************
+// *              VERSION INFORMATION            *
+// **********************************************
 
-        void Draw();
-    };
+#define SOLARUI_VERSION_MAJOR 1
+#define SOLARUI_VERSION_MINOR 0
+#define SOLARUI_VERSION_PATCH 0
 
-    struct Button
-    {
-        float X, Y, W, H;
-        Label Title;
 
-        Button(float x, float y, float w, float h, const char* text)
-            : X(x), Y(y), W(w), H(h), Title(text, x, y) {}
 
-        void Draw();
-        bool Contains(int mx, int my);
-        bool IsClicked();
-    };
+// **********************************************
+// *              CORE LIFECYCLE                 *
+// **********************************************
 
-    struct Slider
-    {
-        float X, Y, W, H;
-        float Value;
 
-        Label Title;
+SOLARUI_API int solUI_Init(void);
 
-        Slider(float x, float y, float w, float h, const char* text)
-            : X(x), Y(y), W(w), H(h),
-              Value(0.5f),
-              Title(text, x, y) {}
 
-        void Draw();
-        void Update();
-        bool Contains(int mx, int my);
-    };
+SOLARUI_API void solUI_Shutdown(void);
 
-    struct Checkbox
-    {
-        float X, Y, W, H;
-        bool Checked;
 
-        Label Title;
 
-        Checkbox(float x, float y, float w, float h, const char* text)
-            : X(x), Y(y), W(w), H(h),
-              Checked(false),
-              Title(text, x, y) {}
+SOLARUI_API void solUI_Update(void);
 
-        void Draw();
-        void Update();
-        bool Contains(int mx, int my);
-    };
 
-    struct image
-    {
-        float X, Y, W, H;
-        GLuint TextureID;
-        std::string FilePath;
-        bool TextureLoaded;
+SOLARUI_API void solUI_Draw(void);
 
-        image(float x, float y, float w, float h, GLuint textureID)
-            : X(x), Y(y), W(w), H(h), TextureID(textureID), FilePath(""), TextureLoaded(true) {}
 
-        image(float x, float y, float w, float h, const char* filePath)
-            : X(x), Y(y), W(w), H(h), TextureID(0), FilePath(filePath ? filePath : ""), TextureLoaded(false) {}
 
-        void Draw();
-        void LoadTexture();
-    };
+// **********************************************
+// *              ELEMENT MANAGEMENT             *
+// **********************************************
 
-    struct inputBox
-    {
-        float X, Y, W, H;
-        std::string data;
-        bool Focused;
-        bool Submitted;
-        size_t CursorPos;
 
-        inputBox(float x, float y, float w, float h)
-            : X(x), Y(y), W(w), H(h), data(""), Focused(false), Submitted(false), CursorPos(0) {}
+SOLARUI_API bool solUI_AddElement(
+    solElement* element
+);
 
-        void Draw();
-        void Update(char key);
-        void UpdateSpecial(int key);  // For arrow keys
-        bool Contains(int mx, int my);
-        void OnClick();
-        std::string Input();  // Returns data if submitted, clears submitted flag
-        void Clear();
-        bool IsSubmitted() const;
-    };
 
-    struct DropdownMenu
-{
-    float X, Y, W, H;
 
-    bool Open;
-    int SelectedIndex;
+SOLARUI_API bool solUI_RemoveElement(
+    solElement* element
+);
 
-    Label Title;
 
-    std::vector<const char*> Options;
 
-    DropdownMenu(
-        float x,
-        float y,
-        float w,
-        float h,
-        const char* text,
-        std::initializer_list<const char*> options)
-        : X(x),
-          Y(y),
-          W(w),
-          H(h),
-          Open(false),
-          SelectedIndex(0),
-          Title(text, x, y),
-          Options(options)
-    {}
+// **********************************************
+// *              LAYER / INPUT CONTROL          *
+// **********************************************
 
-    void Draw();
-    void Update();
-    bool Contains(int mx, int my);
 
-    int GetIndex() const;
-    const char* GetValue() const;
+SOLARUI_API void solUI_CaptureInput(
+    solElement* element
+);
 
-    operator int() const
-    {
-        return SelectedIndex;
-    }
-};
+
+
+SOLARUI_API void solUI_ReleaseInput(void);
+
+
+
+SOLARUI_API void solUI_SetElementLayer(
+    solElement* element,
+    int layer
+);
+
+
+
+SOLARUI_API int solUI_GetElementLayer(
+    solElement* element
+);
+
+
+
+// **********************************************
+// *              VIEWPORT                      *
+// **********************************************
+
+
+SOLARUI_API void solUI_SetLogicalSize(
+    float width,
+    float height
+);
+
+
+
+SOLARUI_API void solUI_UpdateViewport(
+    int width,
+    int height
+);
+
+
+
+SOLARUI_API void solUI_ScreenToLogical(
+    int screenX,
+    int screenY,
+    float* logicalX,
+    float* logicalY
+);
+
+
+
+// **********************************************
+// *              FONT SYSTEM                   *
+// **********************************************
+
+
+SOLARUI_API void solUI_SetFont(
+    solFont font
+);
+
+
+
+#ifdef __cplusplus
 }
+#endif
+
 
 #endif
