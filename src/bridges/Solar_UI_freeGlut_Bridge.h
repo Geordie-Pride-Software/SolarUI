@@ -23,7 +23,10 @@ void solFreeGLUT_Render_Init(void);
 // *              FRAME CONTROL                 *
 // **********************************************
 
-void solFreeGLUT_BeginFrame(void);
+void solFreeGLUT_BeginFrame(
+    float logicalWidth,
+    float logicalHeight
+);
 
 void solFreeGLUT_EndFrame(void);
 

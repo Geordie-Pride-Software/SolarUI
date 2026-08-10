@@ -2,6 +2,7 @@
 #define SOLARUI_CHECKBOX_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,7 +51,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solCheckbox_Init(
+SOLARUI_API void solCheckbox_Init(
     solCheckbox* checkbox,
     const char* label,
     float x,
@@ -60,12 +61,12 @@ void solCheckbox_Init(
 );
 
 
-void solCheckbox_Draw(
+SOLARUI_API void solCheckbox_Draw(
     solCheckbox* checkbox
 );
 
 
-void solCheckbox_Update(
+SOLARUI_API void solCheckbox_Update(
     solCheckbox* checkbox,
     float mouseX,
     float mouseY,
@@ -73,31 +74,31 @@ void solCheckbox_Update(
 );
 
 
-bool solCheckbox_Contains(
+SOLARUI_API bool solCheckbox_Contains(
     solCheckbox* checkbox,
     float x,
     float y
 );
 
 
-void solCheckbox_SetChecked(
+SOLARUI_API void solCheckbox_SetChecked(
     solCheckbox* checkbox,
     bool state
 );
 
 
-bool solCheckbox_IsChecked(
+SOLARUI_API bool solCheckbox_IsChecked(
     solCheckbox* checkbox
 );
 
 
-void solCheckbox_SetCallback(
+SOLARUI_API void solCheckbox_SetCallback(
     solCheckbox* checkbox,
     solBoolCallback callback
 );
 
 
-void solCheckbox_SetStyle(
+SOLARUI_API void solCheckbox_SetStyle(
     solCheckbox* checkbox,
     solCheckboxStyle style
 );

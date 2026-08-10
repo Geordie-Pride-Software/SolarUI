@@ -74,6 +74,8 @@ void solDropdown_Init(
     dropdown->Element.Bounds.Size.Height = height;
 
 
+    dropdown->Element.Type = SOL_ELEMENT_DROPDOWN;
+
     dropdown->Element.Layer = 0;
 
 

@@ -71,6 +71,8 @@ void solButton_Init(
     button->Element.Bounds.Size.Height = height;
 
 
+    button->Element.Type = SOL_ELEMENT_BUTTON;
+
     button->Element.Layer = 0;
     button->Element.Visibility = SOL_VISIBLE;
     button->Element.State = SOL_ENABLED;
@@ -135,12 +137,37 @@ void solButton_Update(
         return;
 
 
+    bool wasPressed =
+        (button->State == SOL_BUTTON_PRESSED);
+
+
     if (solButton_Contains(button, mouseX, mouseY))
     {
         if (mouseDown)
+        {
             button->State = SOL_BUTTON_PRESSED;
+        }
         else
+        {
+            /*
+                Mouse released while still over
+                the button, after having been
+                pressed on it - that's a click.
+                Moving off before releasing
+                doesn't count (button->State
+                would already be NORMAL by then).
+            */
+
+            if (wasPressed)
+            {
+                solButton_Click(
+                    button
+                );
+            }
+
+
             button->State = SOL_BUTTON_HOVERED;
+        }
     }
     else
     {

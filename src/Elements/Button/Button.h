@@ -2,6 +2,7 @@
 #define SOLARUI_BUTTON_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -60,7 +61,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solButton_Init(
+SOLARUI_API void solButton_Init(
     solButton* button,
     const char* text,
     float x,
@@ -70,12 +71,12 @@ void solButton_Init(
 );
 
 
-void solButton_Draw(
+SOLARUI_API void solButton_Draw(
     solButton* button
 );
 
 
-void solButton_Update(
+SOLARUI_API void solButton_Update(
     solButton* button,
     float mouseX,
     float mouseY,
@@ -83,31 +84,31 @@ void solButton_Update(
 );
 
 
-bool solButton_Contains(
+SOLARUI_API bool solButton_Contains(
     solButton* button,
     float x,
     float y
 );
 
 
-void solButton_Click(
+SOLARUI_API void solButton_Click(
     solButton* button
 );
 
 
-void solButton_SetText(
+SOLARUI_API void solButton_SetText(
     solButton* button,
     const char* text
 );
 
 
-void solButton_SetStyle(
+SOLARUI_API void solButton_SetStyle(
     solButton* button,
     solButtonStyle style
 );
 
 
-void solButton_SetCallback(
+SOLARUI_API void solButton_SetCallback(
     solButton* button,
     solVoidCallback callback
 );

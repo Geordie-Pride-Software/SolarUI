@@ -2,6 +2,7 @@
 #define SOLARUI_INPUTBOX_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,7 +68,7 @@ typedef struct
 // *              FUNCTIONS                    *
 // **********************************************
 
-void solInputBox_Init(
+SOLARUI_API void solInputBox_Init(
     solInputBox* input,
     const char* placeholder,
     char* buffer,
@@ -80,19 +81,19 @@ void solInputBox_Init(
 
 
 
-void solInputBox_Draw(
+SOLARUI_API void solInputBox_Draw(
     solInputBox* input
 );
 
 
 
-void solInputBox_Update(
+SOLARUI_API void solInputBox_Update(
     solInputBox* input
 );
 
 
 
-void solInputBox_MouseUpdate(
+SOLARUI_API void solInputBox_MouseUpdate(
     solInputBox* input,
     float mouseX,
     float mouseY,
@@ -101,45 +102,45 @@ void solInputBox_MouseUpdate(
 
 
 
-void solInputBox_KeyInput(
+SOLARUI_API void solInputBox_KeyInput(
     solInputBox* input,
     char key
 );
 
 
 
-void solInputBox_Backspace(
+SOLARUI_API void solInputBox_Backspace(
     solInputBox* input
 );
 
 
 
-void solInputBox_Clear(
+SOLARUI_API void solInputBox_Clear(
     solInputBox* input
 );
 
 
 
-const char* solInputBox_GetText(
+SOLARUI_API const char* solInputBox_GetText(
     solInputBox* input
 );
 
 
 
-bool solInputBox_IsSubmitted(
+SOLARUI_API bool solInputBox_IsSubmitted(
     solInputBox* input
 );
 
 
 
-void solInputBox_SetCallback(
+SOLARUI_API void solInputBox_SetCallback(
     solInputBox* input,
     void (*callback)(const char*)
 );
 
 
 
-void solInputBox_SetStyle(
+SOLARUI_API void solInputBox_SetStyle(
     solInputBox* input,
     solInputBoxStyle style
 );

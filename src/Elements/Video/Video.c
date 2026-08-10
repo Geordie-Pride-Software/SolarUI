@@ -48,6 +48,8 @@ void solVideo_Init(
     video->Element.Bounds.Size.Height = height;
 
 
+    video->Element.Type = SOL_ELEMENT_VIDEO;
+
     video->Element.Layer = 0;
 
     video->Element.Visibility = SOL_VISIBLE;
@@ -131,6 +133,25 @@ void solVideo_Play(
 
 
     video->State = SOL_VIDEO_PLAYING;
+}
+
+
+
+void solVideo_Update(
+    solVideo* video
+)
+{
+    if (!video)
+        return;
+
+
+    if (!video->MediaHandle)
+        return;
+
+
+    solMedia_UpdateVideo(
+        video->MediaHandle
+    );
 }
 
 

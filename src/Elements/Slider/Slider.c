@@ -72,6 +72,8 @@ void solSlider_Init(
     slider->Element.Bounds.Size.Height = height;
 
 
+    slider->Element.Type = SOL_ELEMENT_SLIDER;
+
     slider->Element.Layer = 0;
     slider->Element.Visibility = SOL_VISIBLE;
     slider->Element.State = SOL_ENABLED;

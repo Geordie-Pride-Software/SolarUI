@@ -2,6 +2,7 @@
 #define SOLARUI_SLIDER_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,7 +51,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solSlider_Init(
+SOLARUI_API void solSlider_Init(
     solSlider* slider,
     const char* label,
     float x,
@@ -63,12 +64,12 @@ void solSlider_Init(
 );
 
 
-void solSlider_Draw(
+SOLARUI_API void solSlider_Draw(
     solSlider* slider
 );
 
 
-void solSlider_Update(
+SOLARUI_API void solSlider_Update(
     solSlider* slider,
     float mouseX,
     float mouseY,
@@ -76,31 +77,31 @@ void solSlider_Update(
 );
 
 
-bool solSlider_Contains(
+SOLARUI_API bool solSlider_Contains(
     solSlider* slider,
     float x,
     float y
 );
 
 
-void solSlider_SetValue(
+SOLARUI_API void solSlider_SetValue(
     solSlider* slider,
     float value
 );
 
 
-float solSlider_GetValue(
+SOLARUI_API float solSlider_GetValue(
     solSlider* slider
 );
 
 
-void solSlider_SetCallback(
+SOLARUI_API void solSlider_SetCallback(
     solSlider* slider,
     solFloatCallback callback
 );
 
 
-void solSlider_SetStyle(
+SOLARUI_API void solSlider_SetStyle(
     solSlider* slider,
     solSliderStyle style
 );

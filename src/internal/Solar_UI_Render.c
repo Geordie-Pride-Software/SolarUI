@@ -16,9 +16,45 @@ void solRender_Init(void)
 
 
 
+static float LogicalWidth  = 800.0f;
+static float LogicalHeight = 600.0f;
+
+
+void solRender_SetLogicalSize(
+    float width,
+    float height
+)
+{
+    if(width <= 0.0f || height <= 0.0f)
+        return;
+
+
+    LogicalWidth  = width;
+    LogicalHeight = height;
+}
+
+
+
+void solRender_GetLogicalSize(
+    float* width,
+    float* height
+)
+{
+    if(width)
+        *width = LogicalWidth;
+
+    if(height)
+        *height = LogicalHeight;
+}
+
+
+
 void solRender_BeginFrame(void)
 {
-    solFreeGLUT_BeginFrame();
+    solFreeGLUT_BeginFrame(
+        LogicalWidth,
+        LogicalHeight
+    );
 }
 
 
@@ -166,6 +202,24 @@ void solRender_DrawButton(
         return;
 
 
+    solColour backgroundColour;
+
+    switch(button->State)
+    {
+        case SOL_BUTTON_PRESSED:
+            backgroundColour = button->Style.Pressed;
+            break;
+
+        case SOL_BUTTON_HOVERED:
+            backgroundColour = button->Style.Hover;
+            break;
+
+        default:
+            backgroundColour = button->Style.Background;
+            break;
+    }
+
+
 
     solFreeGLUT_DrawRectangle(
         button->Element.Bounds.Position.X,
@@ -174,7 +228,7 @@ void solRender_DrawButton(
         button->Element.Bounds.Size.Width,
         button->Element.Bounds.Size.Height,
 
-        button->Style.Background
+        backgroundColour
     );
 
 

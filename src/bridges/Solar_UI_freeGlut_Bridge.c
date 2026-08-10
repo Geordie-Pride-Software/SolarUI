@@ -12,8 +12,39 @@ void solFreeGLUT_Render_Init(void)
 
 
 
-void solFreeGLUT_BeginFrame(void)
+void solFreeGLUT_BeginFrame(
+    float logicalWidth,
+    float logicalHeight
+)
 {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    /*
+        Top-left origin, Y growing downward,
+        to match mouse/window pixel coordinates.
+    */
+    glOrtho(
+        0.0,
+        logicalWidth,
+        logicalHeight,
+        0.0,
+        -1.0,
+        1.0
+    );
+
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+
     glPushMatrix();
 
 }

@@ -2,6 +2,7 @@
 #define SOLARUI_LABEL_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,7 +23,7 @@ typedef struct
 
 /* Creation */
 
-void solLabel_Init(
+SOLARUI_API void solLabel_Init(
     solLabel* label,
     const char* text,
     float x,
@@ -32,34 +33,34 @@ void solLabel_Init(
 
 /* Drawing */
 
-void solLabel_Draw(
+SOLARUI_API void solLabel_Draw(
     solLabel* label
 );
 
 
 /* Utility */
 
-void solLabel_SetText(
+SOLARUI_API void solLabel_SetText(
     solLabel* label,
     const char* text
 );
 
-const char* solLabel_GetText(
+SOLARUI_API const char* solLabel_GetText(
     const solLabel* label
 );
 
-void solLabel_SetPosition(
+SOLARUI_API void solLabel_SetPosition(
     solLabel* label,
     float x,
     float y
 );
 
-void solLabel_SetColour(
+SOLARUI_API void solLabel_SetColour(
     solLabel* label,
     solColour colour
 );
 
-void solLabel_SetFont(
+SOLARUI_API void solLabel_SetFont(
     solLabel* label,
     solFont font
 );

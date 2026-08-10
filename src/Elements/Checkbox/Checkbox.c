@@ -78,6 +78,8 @@ void solCheckbox_Init(
     checkbox->Element.Bounds.Size.Height = height;
 
 
+    checkbox->Element.Type = SOL_ELEMENT_CHECKBOX;
+
     checkbox->Element.Layer = 0;
     checkbox->Element.Visibility = SOL_VISIBLE;
     checkbox->Element.State = SOL_ENABLED;

@@ -8,7 +8,11 @@
 
 #ifdef _WIN32
 
-    #ifdef SOLARUI_BUILD_DLL
+    #ifdef SOLARUI_STATIC
+
+        #define SOLARUI_API
+
+    #elif defined(SOLARUI_BUILD_DLL)
 
         #define SOLARUI_API __declspec(dllexport)
 

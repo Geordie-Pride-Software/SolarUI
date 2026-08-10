@@ -5,6 +5,25 @@
 #include "SolarUI_exp.h"
 #include "SolarUI_com.h"
 
+// Element types. Together with SolarUI.h's own
+// lifecycle functions below, this makes SolarUI.h
+// a single public entry point - no need to reach
+// into src/Elements or src/bridges directly.
+#include "../src/Elements/Label/Label.h"
+#include "../src/Elements/Button/Button.h"
+#include "../src/Elements/Slider/Slider.h"
+#include "../src/Elements/Checkbox/Checkbox.h"
+#include "../src/Elements/Image/Image.h"
+#include "../src/Elements/Video/Video.h"
+#include "../src/Elements/Dropdown/Dropdown.h"
+#include "../src/Elements/InputBox/InputBox.h"
+
+// Input feed - call these from your own window/
+// event system (see each function's parameters;
+// they mirror GLUT's callback signatures, but
+// don't require GLUT itself to call).
+#include "../src/bridges/Solar_UI_Input_Bridge.h"
+
 
 #ifdef __cplusplus
 extern "C" {

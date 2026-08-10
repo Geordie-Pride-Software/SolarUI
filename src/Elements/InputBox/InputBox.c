@@ -88,6 +88,8 @@ void solInputBox_Init(
     input->Element.Bounds.Size.Height = height;
 
 
+    input->Element.Type = SOL_ELEMENT_INPUTBOX;
+
     input->Element.Layer = 0;
 
     input->Element.Visibility = SOL_VISIBLE;

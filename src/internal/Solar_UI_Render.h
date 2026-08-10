@@ -32,6 +32,19 @@ void solRender_EndFrame(void);
 
 
 
+void solRender_SetLogicalSize(
+    float width,
+    float height
+);
+
+
+void solRender_GetLogicalSize(
+    float* width,
+    float* height
+);
+
+
+
 // **********************************************
 // *              ELEMENT ROUTER                *
 // **********************************************

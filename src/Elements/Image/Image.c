@@ -47,6 +47,8 @@ void solImage_Init(
     image->Element.Bounds.Size.Height = height;
 
 
+    image->Element.Type = SOL_ELEMENT_IMAGE;
+
     image->Element.Layer = 0;
 
     image->Element.Visibility = SOL_VISIBLE;

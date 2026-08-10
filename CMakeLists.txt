@@ -83,6 +83,9 @@ SolarUI
 PRIVATE
     SOLARUI_BUILD_DLL
 
+PUBLIC
+    $<$<NOT:$<BOOL:${SOLARUI_BUILD_SHARED}>>:SOLARUI_STATIC>
+
 )
 
 # ==============================================
@@ -182,3 +185,93 @@ PROPERTIES
         ${PROJECT_SOURCE_DIR}/bin
 
 )
+
+# ==============================================
+# TEST EXECUTABLE
+# ==============================================
+# Builds against either SHARED or STATIC SolarUI.
+# Only needs "SolarUI.h" - it pulls in every
+# element header and the input feed functions
+# itself, and both build modes export everything
+# it calls.
+
+option(SOLARUI_BUILD_TESTS "Build the SolarUI smoke test" OFF)
+
+if(SOLARUI_BUILD_TESTS)
+
+    enable_language(CXX)
+    set(CMAKE_CXX_STANDARD 11)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+    add_executable(
+    SolarUITest
+    test/test.cpp
+    )
+
+    target_include_directories(
+    SolarUITest
+
+    PRIVATE
+        ${FREEGLUT_DIR}/include
+    )
+
+    target_link_libraries(
+    SolarUITest
+
+    PRIVATE
+        SolarUI
+        OpenGL::GL
+    )
+
+    target_link_directories(
+    SolarUITest
+
+    PRIVATE
+        ${FREEGLUT_DIR}/lib/x64
+    )
+
+    target_link_libraries(
+    SolarUITest
+
+    PRIVATE
+        freeglut
+    )
+
+    # A static SolarUI doesn't pull libvlc's symbols
+    # in for us - a shared SolarUI already resolved
+    # them internally when the DLL itself was built.
+    if(NOT SOLARUI_BUILD_SHARED)
+
+        target_include_directories(
+        SolarUITest
+
+        PRIVATE
+            ${LIBVLC_DIR}/include
+        )
+
+        target_link_directories(
+        SolarUITest
+
+        PRIVATE
+            ${LIBVLC_DIR}
+        )
+
+        target_link_libraries(
+        SolarUITest
+
+        PRIVATE
+            libvlc
+            libvlccore
+        )
+
+    endif()
+
+    set_target_properties(
+    SolarUITest
+
+    PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY
+            ${PROJECT_SOURCE_DIR}/bin
+    )
+
+endif()

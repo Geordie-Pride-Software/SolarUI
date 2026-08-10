@@ -267,7 +267,36 @@ bool solUI_RemoveElement(
 
 void solUI_Update(void)
 {
-    solInput_Update();
+    /*
+        Press/release are one-frame edge flags,
+        set asynchronously by GLUT's mouse
+        callback whenever it fires (between
+        frames). They must stay readable for
+        this ENTIRE frame's dispatch below -
+        clearing them here at the top would wipe
+        out a press event before anything ever
+        got to read it. Cleared at the end
+        instead, once dispatch is done with them.
+    */
+
+
+
+    /*
+        Videos need to keep playing/advancing
+        regardless of mouse hover or capture,
+        so they get ticked every frame here
+        rather than through input dispatch.
+    */
+
+    for(int i = 0; i < ElementCount; i++)
+    {
+        if(Elements[i] && Elements[i]->Type == SOL_ELEMENT_VIDEO)
+        {
+            solVideo_Update(
+                (solVideo*)Elements[i]
+            );
+        }
+    }
 
 
 
@@ -299,6 +328,10 @@ void solUI_Update(void)
             );
         }
     }
+
+
+
+    solInput_Update();
 }
 
 
@@ -352,4 +385,92 @@ void solUI_ReleaseInput(void)
 {
     InputCapture =
         NULL;
+}
+
+
+
+// **********************************************
+// *              VIEWPORT                      *
+// **********************************************
+
+
+static int ScreenWidth  = 800;
+static int ScreenHeight = 600;
+
+
+void solUI_SetLogicalSize(
+    float width,
+    float height
+)
+{
+    solRender_SetLogicalSize(
+        width,
+        height
+    );
+}
+
+
+
+void solUI_UpdateViewport(
+    int width,
+    int height
+)
+{
+    if(width <= 0 || height <= 0)
+        return;
+
+
+    ScreenWidth  = width;
+    ScreenHeight = height;
+}
+
+
+
+void solUI_ScreenToLogical(
+    int screenX,
+    int screenY,
+    float* logicalX,
+    float* logicalY
+)
+{
+    float logicalWidth  = 0.0f;
+    float logicalHeight = 0.0f;
+
+    solRender_GetLogicalSize(
+        &logicalWidth,
+        &logicalHeight
+    );
+
+
+    if(logicalX)
+    {
+        *logicalX =
+            (float)screenX *
+            (logicalWidth / (float)ScreenWidth);
+    }
+
+
+    if(logicalY)
+    {
+        *logicalY =
+            (float)screenY *
+            (logicalHeight / (float)ScreenHeight);
+    }
+}
+
+
+
+// **********************************************
+// *              FONT SYSTEM                   *
+// **********************************************
+
+
+static solFont DefaultFont = { NULL, 12.0f };
+
+
+void solUI_SetFont(
+    solFont font
+)
+{
+    DefaultFont = font;
 }

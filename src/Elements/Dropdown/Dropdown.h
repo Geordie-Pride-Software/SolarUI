@@ -2,6 +2,7 @@
 #define SOLARUI_DROPDOWN_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -69,7 +70,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solDropdown_Init(
+SOLARUI_API void solDropdown_Init(
     solDropdown* dropdown,
     const char* label,
     const char** options,
@@ -82,13 +83,13 @@ void solDropdown_Init(
 
 
 
-void solDropdown_Draw(
+SOLARUI_API void solDropdown_Draw(
     solDropdown* dropdown
 );
 
 
 
-void solDropdown_Update(
+SOLARUI_API void solDropdown_Update(
     solDropdown* dropdown,
     float mouseX,
     float mouseY,
@@ -97,7 +98,7 @@ void solDropdown_Update(
 
 
 
-bool solDropdown_Contains(
+SOLARUI_API bool solDropdown_Contains(
     solDropdown* dropdown,
     float x,
     float y
@@ -105,38 +106,38 @@ bool solDropdown_Contains(
 
 
 
-void solDropdown_Open(
+SOLARUI_API void solDropdown_Open(
     solDropdown* dropdown
 );
 
 
 
-void solDropdown_Close(
+SOLARUI_API void solDropdown_Close(
     solDropdown* dropdown
 );
 
 
 
-int solDropdown_GetIndex(
+SOLARUI_API int solDropdown_GetIndex(
     solDropdown* dropdown
 );
 
 
 
-const char* solDropdown_GetValue(
+SOLARUI_API const char* solDropdown_GetValue(
     solDropdown* dropdown
 );
 
 
 
-void solDropdown_SetCallback(
+SOLARUI_API void solDropdown_SetCallback(
     solDropdown* dropdown,
     solIntCallback callback
 );
 
 
 
-void solDropdown_SetStyle(
+SOLARUI_API void solDropdown_SetStyle(
     solDropdown* dropdown,
     solDropdownStyle style
 );

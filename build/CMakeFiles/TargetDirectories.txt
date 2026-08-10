@@ -1,3 +1,0 @@
-C:/Users/bdawz/Documents/GIT/SolarUI/build/CMakeFiles/SolarUI.dir
-C:/Users/bdawz/Documents/GIT/SolarUI/build/CMakeFiles/edit_cache.dir
-C:/Users/bdawz/Documents/GIT/SolarUI/build/CMakeFiles/rebuild_cache.dir

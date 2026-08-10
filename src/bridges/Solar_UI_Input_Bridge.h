@@ -3,6 +3,7 @@
 
 
 #include "../../include/SolarUI_com.h"
+#include "../../include/SolarUI_exp.h"
 
 
 #ifdef __cplusplus
@@ -15,7 +16,7 @@ extern "C" {
 // *              INITIALISATION                *
 // **********************************************
 
-void solInputBridge_Init(void);
+SOLARUI_API void solInputBridge_Init(void);
 
 
 
@@ -23,14 +24,14 @@ void solInputBridge_Init(void);
 // *              MOUSE                         *
 // **********************************************
 
-void solInputBridge_MouseMove(
+SOLARUI_API void solInputBridge_MouseMove(
     int x,
     int y
 );
 
 
 
-void solInputBridge_MouseButton(
+SOLARUI_API void solInputBridge_MouseButton(
     int button,
     int state,
     int x,
@@ -43,7 +44,7 @@ void solInputBridge_MouseButton(
 // *              KEYBOARD                      *
 // **********************************************
 
-void solInputBridge_KeyDown(
+SOLARUI_API void solInputBridge_KeyDown(
     unsigned char key,
     int x,
     int y
@@ -51,7 +52,7 @@ void solInputBridge_KeyDown(
 
 
 
-void solInputBridge_KeyUp(
+SOLARUI_API void solInputBridge_KeyUp(
     unsigned char key,
     int x,
     int y
@@ -59,14 +60,14 @@ void solInputBridge_KeyUp(
 
 
 
-void solInputBridge_SpecialKey(
+SOLARUI_API void solInputBridge_SpecialKey(
     int key,
     int x,
     int y
 );
 
 
-void solInputBridge_SpecialKeyUp(
+SOLARUI_API void solInputBridge_SpecialKeyUp(
     int key,
     int x,
     int y

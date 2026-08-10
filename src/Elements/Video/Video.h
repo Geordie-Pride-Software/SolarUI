@@ -2,6 +2,7 @@
 #define SOLARUI_VIDEO_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,7 +64,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solVideo_Init(
+SOLARUI_API void solVideo_Init(
     solVideo* video,
     const char* filePath,
     float x,
@@ -73,50 +74,55 @@ void solVideo_Init(
 );
 
 
-void solVideo_Draw(
+SOLARUI_API void solVideo_Draw(
     solVideo* video
 );
 
 
-void solVideo_Load(
+SOLARUI_API void solVideo_Load(
     solVideo* video
 );
 
 
-void solVideo_Play(
+SOLARUI_API void solVideo_Play(
     solVideo* video
 );
 
 
-void solVideo_Pause(
+SOLARUI_API void solVideo_Update(
     solVideo* video
 );
 
 
-void solVideo_Stop(
+SOLARUI_API void solVideo_Pause(
     solVideo* video
 );
 
 
-void solVideo_SetLoop(
+SOLARUI_API void solVideo_Stop(
+    solVideo* video
+);
+
+
+SOLARUI_API void solVideo_SetLoop(
     solVideo* video,
     bool loop
 );
 
 
-void solVideo_SetVolume(
+SOLARUI_API void solVideo_SetVolume(
     solVideo* video,
     float volume
 );
 
 
-void solVideo_SetStyle(
+SOLARUI_API void solVideo_SetStyle(
     solVideo* video,
     solVideoStyle style
 );
 
 
-void solVideo_Unload(
+SOLARUI_API void solVideo_Unload(
     solVideo* video
 );
 

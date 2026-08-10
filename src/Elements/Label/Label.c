@@ -21,6 +21,8 @@ void solLabel_Init(
 
     label->Element.Visibility = SOL_VISIBLE;
     label->Element.State = SOL_ENABLED;
+    label->Element.Type = SOL_ELEMENT_LABEL;
+
     label->Element.Layer = 0;
 
     label->Text = text;

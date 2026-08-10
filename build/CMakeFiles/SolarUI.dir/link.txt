@@ -1,3 +1,0 @@
-C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\SolarUI.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\SolarUI.dir/objects.a @CMakeFiles\SolarUI.dir\objects1.rsp
-C:\msys64\ucrt64\bin\cc.exe -shared -o C:\Users\bdawz\Documents\GIT\SolarUI\bin\libSolarUI.dll -Wl,--out-implib,libSolarUI.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\SolarUI.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\SolarUI.dir\linkLibs.rsp

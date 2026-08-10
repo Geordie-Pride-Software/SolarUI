@@ -2,6 +2,7 @@
 #define SOLARUI_IMAGE_H
 
 #include "../../../include/SolarUI_com.h"
+#include "../../../include/SolarUI_exp.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,7 +47,7 @@ typedef struct
 // *              FUNCTIONS                     *
 // **********************************************
 
-void solImage_Init(
+SOLARUI_API void solImage_Init(
     solImage* image,
     const char* filePath,
     float x,
@@ -56,33 +57,33 @@ void solImage_Init(
 );
 
 
-void solImage_Draw(
+SOLARUI_API void solImage_Draw(
     solImage* image
 );
 
 
-void solImage_Load(
+SOLARUI_API void solImage_Load(
     solImage* image
 );
 
 
-void solImage_Unload(
+SOLARUI_API void solImage_Unload(
     solImage* image
 );
 
 
-void solImage_SetTexture(
+SOLARUI_API void solImage_SetTexture(
     solImage* image,
     unsigned int textureID
 );
 
 
-unsigned int solImage_GetTexture(
+SOLARUI_API unsigned int solImage_GetTexture(
     solImage* image
 );
 
 
-void solImage_SetStyle(
+SOLARUI_API void solImage_SetStyle(
     solImage* image,
     solImageStyle style
 );
