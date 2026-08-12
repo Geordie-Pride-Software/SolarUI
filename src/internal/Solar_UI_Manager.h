@@ -1,7 +1,7 @@
 #ifndef SOLAR_UI_MANAGER_H
 #define SOLAR_UI_MANAGER_H
 
-#include "../../include/SolarUI_com.h"
+#include "../../include/SUI/SolarUI_com.h"
 
 #ifdef __cplusplus
 extern "C" {

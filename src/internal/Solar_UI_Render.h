@@ -1,7 +1,7 @@
 #ifndef SOLAR_UI_RENDER_H
 #define SOLAR_UI_RENDER_H
 
-#include "../../include/SolarUI_com.h"
+#include "../../include/SUI/SolarUI_com.h"
 
 #include "../Elements/Label/Label.h"
 #include "../Elements/Button/Button.h"

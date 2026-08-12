@@ -2,8 +2,8 @@
 #define SOLAR_UI_INPUT_BRIDGE_H
 
 
-#include "../../include/SolarUI_com.h"
-#include "../../include/SolarUI_exp.h"
+#include "../../include/SUI/SolarUI_com.h"
+#include "../../include/SUI/SolarUI_exp.h"
 
 
 #ifdef __cplusplus

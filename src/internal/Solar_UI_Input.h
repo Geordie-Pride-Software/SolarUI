@@ -1,7 +1,7 @@
 #ifndef SOLAR_UI_INPUT_H
 #define SOLAR_UI_INPUT_H
 
-#include "../../include/SolarUI_com.h"
+#include "../../include/SUI/SolarUI_com.h"
 
 #include "../Elements/Button/Button.h"
 #include "../Elements/Slider/Slider.h"

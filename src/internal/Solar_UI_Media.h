@@ -2,7 +2,7 @@
 #define SOLAR_UI_MEDIA_H
 
 #include <stdbool.h>
-#include "SolarUI_com.h"
+#include "SUI/SolarUI_com.h"
 
 
 #ifdef __cplusplus

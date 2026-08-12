@@ -2,7 +2,7 @@
 #define SOLAR_UI_FREEGLUT_BRIDGE_H
 
 
-#include "../../include/SolarUI_com.h"
+#include "../../include/SUI/SolarUI_com.h"
 
 
 #ifdef __cplusplus
