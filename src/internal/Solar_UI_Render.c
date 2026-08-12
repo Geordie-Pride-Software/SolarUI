@@ -70,11 +70,12 @@ void solRender_EndFrame(void)
 // *              ELEMENT ROUTER                *
 // **********************************************
 
-void solRender_DrawElement(
-    solElement* element
-)
+void solRender_DrawElement(solElement* element)
 {
     if(!element)
+        return;
+
+    if(element->Visibility != SOL_VISIBLE)
         return;
 
 
